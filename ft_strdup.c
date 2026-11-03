@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clstorre <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: clstorre <clstorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/15 09:03:40 by clstorre          #+#    #+#             */
-/*   Updated: 2026/09/15 09:03:42 by clstorre         ###   ########.fr       */
+/*   Updated: 2026/11/03 16:57:03 by clstorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
+
+#include "libft.h"
 
 int	ft_strlen(char *str)
 {
@@ -43,13 +44,3 @@ char	*ft_strdup(char *src)
 	ft_strcpy(p, src);
 	return (p);
 }
-
-// #include <stdio.h>
-// int main (void)
-// {
-// 	char *s;
-
-// 	s = ft_strdup("Coucouuu");
-// 	printf("%s\n%c\n", s , s[8]);
-// 	return (0);
-// }

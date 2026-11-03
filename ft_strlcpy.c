@@ -1,14 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcopy.c                                      :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clstorre <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: clstorre <clstorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 18:13:14 by clstorre          #+#    #+#             */
-/*   Updated: 2026/09/10 18:13:16 by clstorre         ###   ########.fr       */
+/*   Updated: 2026/11/03 16:53:43 by clstorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 unsigned int	*ft_strlcpy(char *dest, char *src, unsigned int size)
 {
@@ -24,13 +26,3 @@ unsigned int	*ft_strlcpy(char *dest, char *src, unsigned int size)
 		dest[i] = '\0';
 	return (i);
 }
-
-// #include <stdio.h>
-// int main(void)
-// {
-// 	char desti[100000];
-// 	char sourc[13] = "IHDYsduduchs";
-// 	ft_strlcpy(desti, sourc, 10000);
-// 	printf("%s\n", desti);
-// 	return 0;
-// }
