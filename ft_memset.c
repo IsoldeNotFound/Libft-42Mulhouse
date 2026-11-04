@@ -6,23 +6,21 @@
 /*   By: clstorre <clstorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/03 12:27:52 by clstorre          #+#    #+#             */
-/*   Updated: 2026/11/03 12:46:26 by clstorre         ###   ########.fr       */
+/*   Updated: 2026/11/04 16:26:26 by clstorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "libft.h"
 
-void    *ft_memset(void *s, int c, long n)
+void  *ft_memset(void *b, int c, size_t len)
 {
-    int i;
+    unsigned char *ptr;
 
-    i = 0;
-    if (c > 255 || c < 0)
-    while (i < n)
-    {
-        s[i] = c;
-    }
-    return s;
+    if (!b)
+      return ;
+    ptr = (unsigned char *)b;
+    while (len--)
+        *ptr++ = (unsigned char)c;
+    return (b);
 }
+
