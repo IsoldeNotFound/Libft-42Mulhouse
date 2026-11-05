@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clstorre <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: clstorre <clstorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 08:30:12 by clstorre          #+#    #+#             */
-/*   Updated: 2026/09/10 08:30:15 by clstorre         ###   ########.fr       */
+/*   Updated: 2026/11/05 12:26:25 by clstorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 void	ft_putchar(char c)
 {

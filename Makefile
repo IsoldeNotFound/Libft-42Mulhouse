@@ -1,33 +1,54 @@
+NAME	= libft.a
 
-NAME = libft.a
+CC		= cc
+CFLAGS	= -Wall -Wextra -Werror
+AR		= ar rcs
+RM		= rm -f
 
-SRCS =	ft_putchar.c \
-		ft_swap.c \
-		ft_putstr.c \
-		ft_strlen.c \
-		ft_strcmp.c
+SRCS	= ft_atoi.c \
+		  ft_bzero.c \
+		  ft_calloc.c \
+		  ft_isalnum.c \
+		  ft_isalpha.c \
+		  ft_isascii.c \
+		  ft_isdigit.c \
+		  ft_isprint.c \
+		  ft_memchr.c \
+		  ft_memcmp.c \
+		  ft_memcpy.c \
+		  ft_memmove.c \
+		  ft_memset.c \
+		  ft_putchar.c \
+		  ft_putnbr.c \
+		  ft_split.c \
+		  ft_strchr.c \
+		  ft_strdup.c \
+		  ft_strjoin.c \
+		  ft_strlcat.c \
+		  ft_strlcpy.c \
+		  ft_strlen.c \
+		  ft_strncmp.c \
+		  ft_strnstr.c \
+		  ft_strrchr.c \
+		  ft_substr.c \
+		  ft_tolower.c \
+		  ft_toupper.c
 
-OBJS = $(SRCS:.c=.o)
-
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
-INCLUDES = includes
-AR = ar
-ARFLAGS = rcs
+OBJS	= $(SRCS:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
+	$(AR) $(NAME) $(OBJS)
 
-srcs/%.o: srcs/%.c
-	$(CC) $(CFLAGS) -I$(INCLUDES) -c $< -o $@
+%.o: %.c libft.h
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	$(RM) $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
 

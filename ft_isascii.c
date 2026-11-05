@@ -6,24 +6,15 @@
 /*   By: clstorre <clstorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/03 12:21:45 by clstorre          #+#    #+#             */
-/*   Updated: 2026/11/03 12:23:30 by clstorre         ###   ########.fr       */
+/*   Updated: 2026/11/05 13:07:43 by clstorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isascii(char *str)
+int	ft_isascii(char str)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] < 0 || str[i] > 127)
-		{
-            return (0);
-		}
-		i++;
-	}
+	if (str < 0 || str > 127)
+		return (0);
 	return (1);
 }

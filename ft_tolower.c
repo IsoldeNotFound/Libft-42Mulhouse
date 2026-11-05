@@ -6,22 +6,15 @@
 /*   By: clstorre <clstorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 17:54:06 by clstorre          #+#    #+#             */
-/*   Updated: 2026/11/03 16:55:09 by clstorre         ###   ########.fr       */
+/*   Updated: 2026/11/05 13:36:06 by clstorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strlowcase(char *str)
+int	ft_tolower(int c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] >= 'A' && str[i] <= 'Z')
-			str[i] = str[i] + 32;
-		i++;
-	}
-	return (str);
+	if (c >= 'A' && c <= 'Z')
+		c = c + 32;
+	return (c);
 }
