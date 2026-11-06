@@ -6,13 +6,13 @@
 /*   By: clstorre <clstorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/03 12:21:45 by clstorre          #+#    #+#             */
-/*   Updated: 2026/11/05 13:10:55 by clstorre         ###   ########.fr       */
+/*   Updated: 2026/11/06 00:35:21 by clstorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isprint(char str)
+int	ft_isprint(int str)
 {
 	if (str < 32 || str > 126)
        return (0);

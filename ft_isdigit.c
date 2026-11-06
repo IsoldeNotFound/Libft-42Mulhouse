@@ -6,13 +6,13 @@
 /*   By: clstorre <clstorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 16:37:26 by clstorre          #+#    #+#             */
-/*   Updated: 2026/11/05 13:07:26 by clstorre         ###   ########.fr       */
+/*   Updated: 2026/11/06 00:35:21 by clstorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(char str)
+int	ft_isdigit(int str)
 {
 	if (str < '0' || str > '9')
 		return (0);

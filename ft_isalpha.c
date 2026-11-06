@@ -6,13 +6,13 @@
 /*   By: clstorre <clstorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 14:03:30 by clstorre          #+#    #+#             */
-/*   Updated: 2026/11/05 13:10:06 by clstorre         ###   ########.fr       */
+/*   Updated: 2026/11/06 00:35:21 by clstorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(char str)
+int	ft_isalpha(int str)
 {
 	if (str < 'a' || str > 'z')
 	{

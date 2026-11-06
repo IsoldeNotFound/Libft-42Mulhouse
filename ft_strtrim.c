@@ -1,45 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clstorre <clstorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/10 08:30:12 by clstorre          #+#    #+#             */
-/*   Updated: 2026/11/05 12:26:25 by clstorre         ###   ########.fr       */
+/*   Created: 2026/11/06 01:13:40 by clstorre          #+#    #+#             */
+/*   Updated: 2026/11/06 01:33:35 by clstorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar(char c)
+char	*ft_strtrim(char *s1, char *set)
 {
-	write(1, &c, 1);
-}
+	size_t	start;
+	size_t	end;
 
-void	ft_putnbr(int nb)
-{
-	if (nb == -2147483648)
-	{
-		write(1, "-2147483648", 11);
-		return ;
-	}
-	if (nb < 0)
-	{
-		ft_putchar('-');
-		nb *= -1;
-	}
-	if (nb >= 0 && nb < 10)
-		ft_putchar('0' + nb);
-	else
-	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
-	}
+	if (!s1 || !set)
+		return (NULL);
+	start = 0;
+	while (s1[start] && ft_strchr(set, s1[start]))
+		start++;
+	end = ft_strlen(s1);
+	while (end > start && ft_strchr(set, s1[end - 1]))
+		end--;
+	return (ft_substr(s1, start, end - start));
 }
-
-// int main(void)
-// {
-// 	ft_putnbr(-2147483648);
-// 	return 0;
-// }

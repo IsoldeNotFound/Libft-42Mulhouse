@@ -6,100 +6,80 @@
 /*   By: clstorre <clstorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/23 11:42:52 by clstorre          #+#    #+#             */
-/*   Updated: 2026/11/05 12:23:46 by clstorre         ###   ########.fr       */
+/*   Updated: 2026/11/06 01:11:15 by clstorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	is_sep(char c, char *charset)
+static size_t	count_words(char *s, char c)
 {
-	int	i;
+	size_t	count;
+	size_t	i;
 
-	i = 0;
-	while (charset[i])
-	{
-		if (c == charset[i])
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-int	count_words(char *str, char *charset)
-{
-	int	i;
-	int	count;
-
-	i = 0;
 	count = 0;
-	while (str[i])
+	i = 0;
+	while (s[i])
 	{
-		while (str[i] && is_sep(str[i], charset))
-			i++;
-		if (str[i])
-		{
+		if (s[i] != c && (i == 0 || s[i - 1] == c))
 			count++;
-			while (str[i] && !is_sep(str[i], charset))
-				i++;
-		}
+		i++;
 	}
 	return (count);
 }
 
-int	ft_strlen_sep(char *str, char *charset)
+static size_t	word_len(char *s, char c)
 {
-	int	i;
+	size_t	len;
 
-	i = 0;
-	while (str[i] && !is_sep(str[i], charset))
-		i++;
-	return (i);
+	len = 0;
+	while (s[len] && s[len] != c)
+		len++;
+	return (len);
 }
 
-char	*ft_word_dup(char *str, char *charset)
+static int	fill_tab(char **tab, char *s, char c)
 {
-	int		len;
-	int		i;
-	char	*word;
+	size_t	i;
+	size_t	len;
+	size_t	w;
 
-	len = ft_strlen_sep(str, charset);
-	word = malloc(sizeof(char *) * (len + 1));
-	if (!word)
-		return (0);
 	i = 0;
-	while (i < len)
+	w = 0;
+	while (s[i])
 	{
-		word[i] = str[i];
-		i++;
-	}
-	word[i] = '\0';
-	return (word);
-}
-
-char	**ft_split(char *str, char *charset)
-{
-	char	**res;
-	int		i;
-	int		j;
-
-	res = malloc(sizeof(char *) * (count_words(str, charset) + 1));
-	if (!res)
-		return (0);
-	i = 0;
-	j = 0;
-	while (str[i])
-	{
-		while (str[i] && is_sep(str[i], charset))
+		while (s[i] == c)
 			i++;
-		if (str[i])
+		if (!s[i])
+			break ;
+		len = word_len(s + i, c);
+		tab[w] = ft_substr(s, i, len);
+		if (!tab[w])
 		{
-			res[j] = ft_word_dup(&str[i], charset);
-			j++;
-			while (str[i] && !is_sep(str[i], charset))
-				i++;
+			while (w > 0)
+				free(tab[--w]);
+			return (0);
 		}
+		w++;
+		i += len;
 	}
-	res[j] = 0;
-	return (res);
+	tab[w] = NULL;
+	return (1);
+}
+
+char	**ft_split(char *s, char c)
+{
+	char	**tab;
+
+	if (!s)
+		return (NULL);
+	tab = malloc((count_words(s, c) + 1) * sizeof(char *));
+	if (!tab)
+		return (NULL);
+	if (!fill_tab(tab, s, c))
+	{
+		free(tab);
+		return (NULL);
+	}
+	return (tab);
 }

@@ -6,36 +6,27 @@
 /*   By: clstorre <clstorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/15 17:04:34 by clstorre          #+#    #+#             */
-/*   Updated: 2026/11/05 13:24:52 by clstorre         ###   ########.fr       */
+/*   Updated: 2026/11/06 01:02:02 by clstorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(int size, char **strs, char*sep)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*str;
-	int		i;
-	int		total;
+	size_t	len1;
+	size_t	len2;
 
-	total = 0;
-	i = 0;
-	while (i < size)
-	{
-		total += ft_strlen(strs[i]);
-		i++;
-	}
-	if (i != 0)
-		total += (i - 1) * ft_strlen(sep);
-	str = (char *) ft_calloc(total, sizeof(char) + 1);
-	str[0] = '\0';
-	i = 0;
-	while (i < size)
-	{
-		ft_strlcat(str, strs[i], ft_strlen(strs[i]));
-		i++;
-		if (i < size)
-			ft_strlcat(str, sep, ft_strlen(sep));
-	}
+	if (!s1 || !s2)
+		return (NULL);
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	str = malloc(len1 + len2 + 1);
+	if (!str)
+		return (NULL);
+	ft_memcpy(str, s1, len1);
+	ft_memcpy(str + len1, s2, len2);
+	str[len1 + len2] = '\0';
 	return (str);
 }

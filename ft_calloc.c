@@ -6,7 +6,7 @@
 /*   By: clstorre <clstorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 15:45:09 by clstorre          #+#    #+#             */
-/*   Updated: 2026/11/05 14:03:08 by clstorre         ###   ########.fr       */
+/*   Updated: 2026/11/06 00:40:17 by clstorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ void  *ft_calloc(size_t nmemb, size_t size)
 	ptr = (void *)malloc(nmemb * size);
 	if (!ptr)
 		return (NULL);
-	ft_bzero(ptr, nmemb);
+	ft_bzero(ptr, nmemb * size);
 	return (ptr);
 }
