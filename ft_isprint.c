@@ -6,7 +6,7 @@
 /*   By: clstorre <clstorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/03 12:21:45 by clstorre          #+#    #+#             */
-/*   Updated: 2026/11/06 00:35:21 by clstorre         ###   ########.fr       */
+/*   Updated: 2026/11/06 15:47:30 by clstorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 int	ft_isprint(int str)
 {
 	if (str < 32 || str > 126)
-       return (0);
+		return (0);
 	return (1);
 }

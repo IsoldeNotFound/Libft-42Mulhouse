@@ -6,10 +6,11 @@
 /*   By: clstorre <clstorre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/13 15:09:59 by clstorre          #+#    #+#             */
-/*   Updated: 2026/11/03 16:57:56 by clstorre         ###   ########.fr       */
+/*   Updated: 2026/11/06 15:33:28 by clstorre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
 int	ft_atoi(char *str)
 {
